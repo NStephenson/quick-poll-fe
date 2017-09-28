@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
-import { PollFormComponent } from '../poll-form/poll-form.component'
+
+import { HomeComponent } from '../home/home.component'
+
+
+
+import { PollFormComponent } from '../poll/poll-form/poll-form.component'
+import { PollResultsComponent } from '../poll/poll-results/poll-results.component'
+import { PollComponent } from '../poll/poll.component'
 
 const routes: Routes = [
-  {path: '', component: PollFormComponent}
+  {path: '', component: HomeComponent},
+  {path: 'results', component: PollResultsComponent}
 ]
 
 
