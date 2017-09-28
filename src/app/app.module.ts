@@ -7,13 +7,20 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 import { AppComponent } from './app.component';
-import { PollFormComponent } from './poll-form/poll-form.component';
+import { PollFormComponent } from './poll/poll-form/poll-form.component';
+import { PollComponent } from './poll/poll.component';
+import { PollResultsComponent } from './poll/poll-results/poll-results.component';
+import { PollService } from './poll/poll.service';
+import { HomeComponent } from './home/home.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PollFormComponent
+    PollFormComponent,
+    PollComponent,
+    PollResultsComponent,
+    HomeComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -22,7 +29,7 @@ import { PollFormComponent } from './poll-form/poll-form.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PollService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
