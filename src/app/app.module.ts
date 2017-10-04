@@ -11,7 +11,8 @@ import { PollFormComponent } from './poll/poll-form/poll-form.component';
 import { PollComponent } from './poll/poll.component';
 import { PollResultsComponent } from './poll/poll-results/poll-results.component';
 import { PollService } from './poll/poll.service';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { PollNewComponent } from './poll/poll-new/poll-new.component'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component'
     PollFormComponent,
     PollComponent,
     PollResultsComponent,
-    HomeComponent
+    HomeComponent,
+    PollNewComponent
   ],
   imports: [
     NgbModule.forRoot(),
