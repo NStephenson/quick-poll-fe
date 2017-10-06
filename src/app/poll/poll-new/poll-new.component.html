@@ -1,3 +1,23 @@
-<p>
-  poll-new works!
-</p>
+<h1>Test: {{submitted}}</h1>
+<form (ngSubmit)="createPoll(poll)" #pollForm="ngForm">
+  <label for="question">Question:</label>
+  <input type="text" placeholder="Ask your question here." name="question" #question="ngModel" [(ngModel)]="poll.question" required>
+  <br> 
+  <div class="response" *ngFor="let response of poll.responses; let i = index">
+    <label for="response">Response {{i + 1}}:</label>
+    <input type="text" placeholder="Add up to six choices" name="response[{{i}}]" [(ngModel)]="response.text" [value]="response.text" required>
+  </div>
+  <button type="button" (click)="addResponse()" *ngIf="!responseLimit()">Add Another Response</button>
+ 
+  <h4>Poll Options</h4>
+  <label for="">Select Multiple Options</label>
+  <input type="checkbox" name="select_multiple" #select_multiple="ngModel" [(ngModel)]="poll.select_multiple">
+  <label for="">Public Responses</label>
+  <input type="checkbox" name="public_results" #public_results="ngModel" [(ngModel)]="poll.public_results">
+  <br>
+  <button class="btn btn-outline-primary btn-lrg" 
+                [disabled]="!pollForm.form.valid" [hidden]="submitted" 
+                type="submit">
+    Generate Poll
+  </button>
+</form>
