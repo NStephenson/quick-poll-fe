@@ -6,7 +6,8 @@ export class Poll {
     public select_multiple?: boolean,
     public public_results?: boolean,
     public open?: boolean,
-    public responses?: Response[],
+    public responses?: any,
+    public responses_attributes?: any,
     public user?: any
   ){}
 }
