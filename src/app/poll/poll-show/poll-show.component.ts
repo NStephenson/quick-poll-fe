@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Poll } from '../poll'
+import { ActivatedRoute, Params } from '@angular/router'
+import { Http, Response, Headers, RequestOptions } from '@angular/http'
+import { Observable } from 'rxjs/Rx'
+import { PollService } from '../poll.service'
 
 @Component({
   selector: 'app-poll-show',
   templateUrl: './poll-show.component.html',
-  styleUrls: ['./poll-show.component.css']
+  styleUrls: ['./poll-show.component.css'],
+  providers: [PollService]
 })
 export class PollShowComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: Http,
+    private pollService: PollService,
+  ) { }
 
-  ngOnInit() {
+  @Input()
+  poll: Poll;
+  errorMessage: string; 
+
+  ngOnInit(): void { 
+    this.getPoll()
   }
 
+  getPoll(){
+    let pollRequest = this.route.params
+        .flatMap((params: Params) => this.pollService.getPoll(+params['id']));
+
+    pollRequest.subscribe(
+      response => this.poll = response,
+      error => this.errorMessage = <any>error
+    )
+  }
 }
