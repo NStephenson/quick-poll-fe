@@ -9,6 +9,7 @@ import { Poll }  from './poll'
 
 
 export class PollComponent implements OnInit {
+  results: boolean = false
 
   @Input() 
   poll: Poll;
@@ -17,6 +18,11 @@ export class PollComponent implements OnInit {
   ){}
 
   ngOnInit(){
+  }
+
+  toggleResults(e){
+    e.preventDefault()
+    this.results = !this.results
   }
 
 }
