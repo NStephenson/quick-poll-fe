@@ -2,27 +2,17 @@
   <div class="col-md-6 poll-form">
 
         <div class="mx-auto poll-info">
-        <h2>This is the first poll?</h2>
-        <p> by<br> <a href="">testuser</a></p>
+        <h2>{{poll.question}}</h2>
+        <div id="usernameBlock" *ngIf="poll.user">
+          <p> by<br> <a href="">{{poll.user.username}}</a></p>
+        </div>
 
         </div>
         
         <div class="form-group row responses">
 
-            <div class="col-6 response">
-            Sometimes Sometimes Sometimes Sometimes Sometimes Sometimes - 24 votes
-            </div>
-
-            <div class="col-6 response">
-                Sometimes Sometimes Sometimes Sometimes - 30 votes
-            </div>
-
-           <div class="col-6 response">
-                 Never Sometimes Sometimes Sometimes Sometimes Sometimes - 12 votes
-            </div>
-
-            <div class="col-6 response">
-                Everytime Sometimes Sometimes Sometimes Sometimes Sometimes - 9 votes
+            <div *ngFor="let response of poll.responses" class="col-6 response">
+            {{response.text}} - {{response.selected}} votes
             </div>
 
                
