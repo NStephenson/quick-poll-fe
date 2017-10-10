@@ -22,10 +22,14 @@
       Published cb 
     Should Redirect to poll form after submit
 
-3. Poll Form Submission 
+3. Poll Form Submission **Complete**
     Make Polls Submitable for NON USERS
 
-4. The Dreaded AUTHENTICATION, PT1
+4. Usability
+    Make new poll redirect on submit
+    Make responded poll swap to results on submit
+
+5. The Dreaded AUTHENTICATION, PT1
     Get User Sign ins working
     Get Signing out working
     Allow Users to only be signed in to certain pages
