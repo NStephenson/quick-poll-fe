@@ -20,6 +20,7 @@ export class PollNewComponent implements OnInit {
   ngOnInit() {
     this.poll.responses = [];
     this.addResponse()
+    this.addResponse()
   }
 
   addResponse(){
