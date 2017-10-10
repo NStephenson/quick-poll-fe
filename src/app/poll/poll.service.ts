@@ -29,6 +29,16 @@ export class PollService {
            .map((res: Response) => res.json())
   }
 
+  submitResponses(pollId: number, responseIds: number[]){
+    let route = `/${pollId}/results`
+    let res = {poll: {id: pollId, response_ids: responseIds}}
+    let headers = new Headers({'Content-Type': 'application/json'})
+    let options = new RequestOptions({headers: headers})
+
+    return this.http.post(this.pollsUrl + route, JSON.stringify(res), {headers: headers})
+                    .map((res: Response) => res.json())
+  }
+
 
 
   private handleError (error: Response | any) {
