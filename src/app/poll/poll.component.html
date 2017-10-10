@@ -1,6 +1,8 @@
-<div *ngIf="true; else elseBlock">
+<div *ngIf="!results; else elseBlock">
   <app-poll-form *ngIf="poll" [poll]="poll"></app-poll-form>
 </div>
 <ng-template #elseBlock>
-  <app-poll-results></app-poll-results>
+  <app-poll-results *ngIf="poll" [poll]="poll"></app-poll-results>
 </ng-template>
+
+<a href="" (click)="toggleResults($event)">See Results</a>
