@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { Poll } from '../poll';
 import { PollService } from '../poll.service';
 import { Observable } from 'rxjs/Rx';
@@ -14,7 +15,8 @@ export class PollNewComponent implements OnInit {
   submitted: boolean = false; 
 
 
-  constructor(private pollService: PollService){
+  constructor(private pollService: PollService,
+    private router: Router){
   }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class PollNewComponent implements OnInit {
   createPoll(poll){
     this.submitted = true;
     this.pollService.createPoll(poll)
-        .subscribe(data => {return true;}, 
+        .subscribe(data => { this.goToShow(data);}, 
                    error => { console.log("error saving");
                               return Observable.throw(error);
                             });
@@ -40,6 +42,11 @@ export class PollNewComponent implements OnInit {
 
   responseLimit(){
     return this.poll.responses.length >= 6
+  }
+
+  goToShow(poll: Poll): void{
+    let link = ['/polls', poll.id];
+    this.router.navigate(link)
   }
 
 
