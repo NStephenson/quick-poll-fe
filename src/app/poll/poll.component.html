@@ -1,5 +1,5 @@
 <div *ngIf="!results; else elseBlock">
-  <app-poll-form *ngIf="poll" [poll]="poll"></app-poll-form>
+  <app-poll-form *ngIf="poll" [poll]="poll" (submitPoll)="toggleResults($event)"></app-poll-form>
 </div>
 <ng-template #elseBlock>
   <app-poll-results *ngIf="poll" [poll]="poll"></app-poll-results>
