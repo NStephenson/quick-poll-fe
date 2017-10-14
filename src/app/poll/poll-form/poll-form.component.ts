@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Poll } from '../poll'
 import { PollService } from '../poll.service'
 import { Observable } from 'rxjs/Rx'
@@ -14,17 +14,21 @@ import { Observable } from 'rxjs/Rx'
 export class PollFormComponent implements OnInit {
   selection: number[] = [];
 
-  @Input()
-  poll: Poll;
+  @Input() poll: Poll;
+   @Output() submitPoll: EventEmitter<any> = new EventEmitter();
 
   constructor(private pollService: PollService) { }
 
   ngOnInit() {
   }
+  
+ 
 
   handleSubmit(){
     this.pollService.submitResponses(this.poll.id, this.selection)
-                    .subscribe(data => {return true;}, 
+                    .subscribe(data => {
+                      this.submitPoll.emit();
+                    }, 
                                error => { console.log("error saving");
                                return Observable.throw(error);
                               });
