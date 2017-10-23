@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { Angular2TokenService} from 'angular2-token';
 
 
 import { AppComponent } from './app.component';
@@ -13,7 +14,9 @@ import { PollResultsComponent } from './poll/poll-results/poll-results.component
 import { PollService } from './poll/poll.service';
 import { HomeComponent } from './home/home.component';
 import { PollNewComponent } from './poll/poll-new/poll-new.component';
-import { PollShowComponent } from './poll/poll-show/poll-show.component'
+import { PollShowComponent } from './poll/poll-show/poll-show.component';
+import { SessionComponent } from './session/session.component';
+import { RegistrationComponent } from './session/registration/registration.component';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { PollShowComponent } from './poll/poll-show/poll-show.component'
     PollResultsComponent,
     HomeComponent,
     PollNewComponent,
-    PollShowComponent
+    PollShowComponent,
+    SessionComponent,
+    RegistrationComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -33,7 +38,7 @@ import { PollShowComponent } from './poll/poll-show/poll-show.component'
     FormsModule,
     HttpModule
   ],
-  providers: [PollService],
+  providers: [PollService, Angular2TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
