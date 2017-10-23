@@ -1,0 +1,18 @@
+<h1>Register</h1>
+
+<form #registrationForm="ngForm" (ngSubmit)="signUp(newUser)">
+  <label for="username">Username:</label>
+  <input type="text" name="username" required [(ngModel)]="newUser.username" #username="ngModel"><br>
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" required [(ngModel)]="newUser.email"><br>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" required [(ngModel)]="newUser.password"><br>
+
+  <label for="passwordConfirmation">Password Confirmation:</label>
+  <input type="password" name="passwordConfirmation" required 
+         [(ngModel)]="newUser.passwordConfirmation"><br>
+
+  <button type="submit">Sign Up</button>
+</form>
