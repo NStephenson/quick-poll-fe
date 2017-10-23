@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'results', component: PollResultsComponent},
   {path: 'polls/:id', component: PollShowComponent},
-  {path: 'signup', component: RegistrationComponent}
+  {path: 'register', component: RegistrationComponent}
 ]
 
 
