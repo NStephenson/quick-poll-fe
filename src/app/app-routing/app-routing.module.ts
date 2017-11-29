@@ -21,8 +21,8 @@ import { Angular2TokenService } from 'angular2-token';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'results', component: PollResultsComponent},
-  {path: 'polls/:id', component: PollShowComponent, canActivate: [Angular2TokenService]},
-  {path: 'polls', component: PollIndexComponent},
+  {path: 'polls/:id', component: PollShowComponent},
+  {path: 'polls', component: PollIndexComponent, canActivate: [Angular2TokenService]},
   {path: 'register', component: RegistrationComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: '**', component: NotFoundComponent}
