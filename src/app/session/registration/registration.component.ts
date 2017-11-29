@@ -6,28 +6,18 @@ import { NewUser } from './newUser'
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
-  providers: [Angular2TokenService]
+  styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
   newUser: NewUser = {};
 
-  constructor(private _tokenService: Angular2TokenService) {
-    this._tokenService.init({
-          apiBase: "http://localhost:3000"
-        });
-  }
+  constructor(private tokenService: Angular2TokenService) {}
 
   ngOnInit() {
   }
 
   signUp(newUser){
-    this._tokenService.registerAccount({
-      email:                newUser.email,
-      username:             newUser.username,
-      password:             newUser.password,
-      passwordConfirmation: newUser.passwordConfirmation
-    }).subscribe(
+    this.tokenService.registerAccount(newUser).subscribe(
       res =>      console.log(res),
       error =>    console.log(error)
     );
