@@ -12,25 +12,31 @@
       Sign Up *inactive link*
       Make Poll *form included on home page, link unnecessary?*
 
-2. Create Poll (Only options will be editable, not a primary concern tho)
-    Create Componenent **Complete**
-    Form Needs: **Complete**
+2.  **Complete** Create Poll (Only options will be editable, not a primary concern tho)
+    Create Componenent 
+    Form Needs:
       Question Input
       6 Response Input
       Select Multiple cb
       Public Responses cb 
       Published cb 
-    Should Redirect to poll form after submit
+    Should Redirect to poll form after submit 
 
-3. Poll Form Submission **Complete**
+3. **Complete** Poll Form Submission 
     Make Polls Submitable for NON USERS
 
-4. Usability
+4.  **Complete** Usability
     Make new poll redirect on submit
     Make responded poll swap to results on submit
 
 5. The Dreaded AUTHENTICATION, PT1
-    Get User Sign ins working
+    Following Pages need creation:
+      Sign In
+        -username or email, password
+      Register
+        -username, email, password, password confirm
+      Sign out link
+    Get User Sign ins working *works sorta*
     Get Signing out working
     Allow Users to only be signed in to certain pages
 
