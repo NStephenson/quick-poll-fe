@@ -14,15 +14,18 @@ import { Router } from '@angular/router'
 export class SignInComponent implements OnInit {
   signInData: SignInData = <SignInData>{};
 
-  constructor(private tokenService: Angular2TokenService, private router: Router) {
+
+  constructor(
+    private router: Router, 
+    private authService: Angular2TokenService) {
   }
 
-  ngOnInit(){}
+  ngOnInit(){ }
 
   signIn(){
-    this.tokenService.signIn(this.signInData).subscribe(
-      res =>     {this.router.navigate(['polls'])},
-      error =>    console.log(error)
+    this.authService.signIn(this.signInData).subscribe(
+      res =>    this.router.navigate(['polls']),
+      error =>  console.log(error)
     );
   }
 
