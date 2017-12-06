@@ -6,23 +6,23 @@ import { Router } from '@angular/router'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [Angular2TokenService]
 })
+
 export class AppComponent {
   title = 'app';
    constructor(
      private _tokenService: Angular2TokenService,
-     private router: Router,
-     ) {
-        this._tokenService.init({
-          apiBase: "http://localhost:3000"
-        });
-    }
+     private router: Router
+     ){
+     _tokenService.init({
+       apiBase: 'http://localhost:3000'
+     })
+   }
 
-    signOut(){
-      this._tokenService.signOut().subscribe(
-        res =>      this.router.navigate(['sign-in']),
-        error =>    console.log(error)
-      );
-    }
+  signOut(){
+    this._tokenService.signOut().subscribe(
+      res   =>  this.router.navigate(['sign-in']),
+      error =>  console.log(error)
+    );
+  }
 }
