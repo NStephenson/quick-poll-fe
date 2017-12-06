@@ -21,8 +21,10 @@ import { RegistrationComponent } from './session/registration/registration.compo
 import { SignInComponent } from './session/sign-in/sign-in.component';
 
 import { Angular2TokenService } from 'angular2-token';
+
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PollIndexComponent } from './poll/poll-index/poll-index.component';
+import { AuthGuard, UnAuthGuard } from './guards/auth.guard'
 
 
 @NgModule({
@@ -47,7 +49,7 @@ import { PollIndexComponent } from './poll/poll-index/poll-index.component';
     FormsModule,
     HttpModule
   ],
-  providers: [PollService, Angular2TokenService],
+  providers: [PollService, Angular2TokenService, AuthGuard, UnAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
