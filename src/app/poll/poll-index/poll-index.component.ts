@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Poll } from '../poll';
 import { PollService } from '../poll.service';
 import { Observable } from 'rxjs/Rx'
+import { Resolve } from '@angular/router'
 
 
 @Component({
@@ -15,13 +16,15 @@ export class PollIndexComponent implements OnInit {
 
   constructor(private pollService: PollService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.getPolls()
   }
 
+
+
   getPolls(){
     this.pollService.getPolls().subscribe(
-      response => this.polls = response,
+      resp => this.polls = resp,
       error => this.errorMessage = <any>error
     )
   }
