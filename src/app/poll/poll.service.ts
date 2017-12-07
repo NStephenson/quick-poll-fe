@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx'
 import { Poll } from './poll'
 import { Angular2TokenService } from 'angular2-token';
 
 @Injectable()
 export class PollService {
-  private pollsUrl: string = "http://localhost:3000/polls";
 
-  constructor( private http: Http,
-               private tokenService: Angular2TokenService
+  constructor( private tokenService: Angular2TokenService
              ) { }
 
   getPolls(): Observable<Poll[]> {
@@ -26,17 +24,14 @@ export class PollService {
 
   createPoll(poll: Poll){
     poll.responses_attributes = poll.responses
-    return this.tokenService.post('/polls', JSON.stringify({poll: poll}))
+    return this.tokenService.post('polls', JSON.stringify({poll: poll}))
            .map((res: Response) => res.json())
   }
 
   submitResponses(pollId: number, responseIds: number[]){
-    let route = `/${pollId}/results`
     let res = {poll: {id: pollId, response_ids: responseIds}}
-    let headers = new Headers({'Content-Type': 'application/json'})
-    let options = new RequestOptions({headers: headers})
 
-    return this.http.post(this.pollsUrl + route, JSON.stringify(res), {headers: headers})
+    return this.tokenService.post(`polls/${pollId}/results`, JSON.stringify(res))
                     .map((res: Response) => res.json())
   }
 
