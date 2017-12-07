@@ -26,9 +26,7 @@ export class PollService {
 
   createPoll(poll: Poll){
     poll.responses_attributes = poll.responses
-    let headers = new Headers({'Content-Type': 'application/json'})
-    let options = new RequestOptions({headers: headers})
-    return this.http.post(this.pollsUrl, JSON.stringify({poll: poll}), {headers: headers})
+    return this.tokenService.post('/polls', JSON.stringify({poll: poll}))
            .map((res: Response) => res.json())
   }
 
