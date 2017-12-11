@@ -24,7 +24,8 @@ import { Angular2TokenService } from 'angular2-token';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PollIndexComponent } from './poll/poll-index/poll-index.component';
-import { AuthGuard, UnAuthGuard } from './guards/auth.guard'
+import { AuthGuard, UnAuthGuard } from './guards/auth.guard';
+import { UserShowComponent } from './user/user-show/user-show.component'
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AuthGuard, UnAuthGuard } from './guards/auth.guard'
     RegistrationComponent,
     SignInComponent,
     NotFoundComponent,
-    PollIndexComponent
+    PollIndexComponent,
+    UserShowComponent
   ],
   imports: [
     NgbModule.forRoot(),
