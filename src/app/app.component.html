@@ -10,10 +10,11 @@
         <li class="nav-item dropdown">
           <div ngbDropdown class="d-inline-block dropdown-links">
             <button class="btn btn-outline-primary" id="proposalDropdown" ngbDropdownToggle>
-              Hello, Username! 
+              Hello, {{currentUser().username}}! 
             </button>
             <div class="dropdown-menu" aria-labelledby="proposalDropdown">
               <a class="dropdown-item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Profile</a>
+              <a class="dropdown-item" routerLink="polls/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a new Poll</a>
               <a class="dropdown-item" routerLink="polls" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">View the Polls</a>
               <a class="dropdown-item" (click)="signOut()" routerLinkActive="active">Sign Out</a>
             </div>
@@ -26,4 +27,8 @@
 
 <div class="app-body container">
   <router-outlet></router-outlet>  
+</div>
+
+<div>
+<p (click)="test()">test</p>
 </div>

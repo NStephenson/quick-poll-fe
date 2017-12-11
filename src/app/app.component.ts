@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Angular2TokenService } from 'angular2-token';
+import { Angular2TokenService, UserData } from 'angular2-token';
 import { Router } from '@angular/router'
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 
 export class AppComponent {
   title = 'app';
+
    constructor(
      private _tokenService: Angular2TokenService,
      private router: Router
@@ -17,6 +18,10 @@ export class AppComponent {
      _tokenService.init({
        apiBase: 'http://localhost:3000'
      })
+   }
+
+   currentUser(): UserData{
+     return this._tokenService.userSignedIn ? this._tokenService.currentUserData : null
    }
 
   signOut(){
