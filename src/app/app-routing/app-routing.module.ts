@@ -6,6 +6,7 @@ import { HomeComponent } from '../home/home.component';
 import { RegistrationComponent } from '../session/registration/registration.component'
 import { SignInComponent } from '../session/sign-in/sign-in.component'
 import { NotFoundComponent } from '../not-found/not-found.component'
+import { PollNewComponent } from '../poll/poll-new/poll-new.component'
 
 import { PollShowComponent } from '../poll/poll-show/poll-show.component'
 import { PollFormComponent } from '../poll/poll-form/poll-form.component'
@@ -21,6 +22,7 @@ import { AuthGuard, UnAuthGuard } from '../guards/auth.guard'
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'results', component: PollResultsComponent},
+  {path: 'polls/new', component: PollNewComponent},
   {path: 'polls/:id', component: PollShowComponent},
   {path: 'polls', component: PollIndexComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegistrationComponent, canActivate: [UnAuthGuard]},
