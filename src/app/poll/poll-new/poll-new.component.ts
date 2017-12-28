@@ -1,23 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { Poll } from '../poll';
+import { Poll, Response } from '../poll';
 import { PollService } from '../poll.service';
 import { Observable } from 'rxjs/Rx';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-poll-new',
   templateUrl: './poll-new.component.html',
   styleUrls: ['./poll-new.component.css'],
-  providers: [PollService]
+  providers: [PollService, FormBuilder]
 })
+
 export class PollNewComponent implements OnInit {
   poll: Poll = new Poll();
   submitted: boolean = false; 
+  // pollForm: FormGroup;
 
 
-  constructor(private pollService: PollService,
-    private router: Router){
+  constructor(
+    private pollService: PollService,
+    private router: Router,
+    // private fb: FormBuilder
+  ){
+    // this.createForm()
   }
+
+  // createForm(){
+  //   this.pollForm = this.fb.group({
+  //     question: ['', Validators.required],
+  //     responses: this.fb.group(new Response()),
+  //     select_multiple: false,
+  //     public_results: true
+  //   })
+  // }
 
   ngOnInit() {
     this.poll.responses = [];
@@ -27,7 +43,7 @@ export class PollNewComponent implements OnInit {
 
   addResponse(){
     if (!this.responseLimit()){
-      this.poll.responses.push({text: ''})
+      this.poll.responses.push(new Response)
     }
   }
 
@@ -47,6 +63,19 @@ export class PollNewComponent implements OnInit {
   goToShow(poll: Poll): void{
     let link = ['/polls', poll.id];
     this.router.navigate(link)
+  }
+
+  checkResponses(){
+    let emptyResponse = false;
+    let responses = this.poll.responses
+
+    for(let i=0; i< responses.length; i++){
+      if (responses[i].text == "") {
+        emptyResponse = true 
+      }
+    }
+
+    emptyResponse ? null : this.addResponse()
   }
 
 

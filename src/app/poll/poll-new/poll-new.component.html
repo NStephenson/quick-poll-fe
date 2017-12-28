@@ -1,22 +1,77 @@
 <form (ngSubmit)="createPoll(poll)" #pollForm="ngForm">
-  <label for="question">Question:</label>
-  <input type="text" placeholder="Ask your question here." name="question" #question="ngModel" [(ngModel)]="poll.question" required>
+
+  <input type="text" placeholder="First start by asking a question." name="question" #question="ngModel" [(ngModel)]="poll.question" class="form-control no-border form-control-lg" required>
   <br> 
-  <div class="response" *ngFor="let response of poll.responses; let i = index">
-    <label for="response">Response {{i + 1}}:</label>
-    <input type="text" placeholder="Add up to six choices" name="response[{{i}}]" [(ngModel)]="response.text" [value]="response.text" required>
+  
+  <div class="response-section" [hidden]="question.pristine">
+    <div class="row">
+      <div class="response"  
+           *ngFor="let response of poll.responses; let i = index">
+        <input type="text" 
+               placeholder="Add up to six choices" 
+               name="response[{{i}}]" 
+               [(ngModel)]="response.text" 
+               [value]="response.text" 
+               [required]="i<2" 
+               (keypress)="checkResponses()"
+               class="form-control no-border col-md-6">
+      </div>
+    </div>
+
+
+<!--     <button type="button" 
+            (click)="addResponse()" 
+            *ngIf="!responseLimit()"
+            class="btn btn-outline-primary btn-lrg">
+      Add Another Response
+    </button> -->
   </div>
-  <button type="button" (click)="addResponse()" *ngIf="!responseLimit()">Add Another Response</button>
+
+
+  <div class="option-section" [hidden]="question.pristine">
  
-  <h4>Poll Options</h4>
-  <label for="">Select Multiple Options</label>
-  <input type="checkbox" name="select_multiple" #select_multiple="ngModel" [(ngModel)]="poll.select_multiple">
-  <label for="">Public Responses</label>
-  <input type="checkbox" name="public_results" #public_results="ngModel" [(ngModel)]="poll.public_results">
+    <h4>Poll Options</h4>
+    
+    <label class="custom-control custom-checkbox">
+      <input  type="checkbox" 
+              name="select_multiple" 
+              #select_multiple="ngModel" 
+              [(ngModel)]="poll.select_multiple"
+              class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Allow Multiple Responses</span>
+    </label>
+    
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" 
+             name="public_results" 
+             #public_results="ngModel" 
+             [(ngModel)]="poll.public_results" 
+             class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Public Responses</span>
+    </label>
+  </div>
   <br>
   <button class="btn btn-outline-primary btn-lrg" 
-                [disabled]="!pollForm.form.valid" [hidden]="submitted" 
-                type="submit">
+          [hidden]="question.pristine" 
+          [disabled]="!pollForm.form.valid" 
+          type="submit">
     Generate Poll
   </button>
+
 </form>
+
+<!-- <form [formGroup]="pollForm" novalidate>
+  <label for="question" class="center-block">Question:</label>
+  <input formControlName="question" placeholder="Ask your question here.">
+
+  <div formGroupName="responses">
+    <input formControlName="text" placeholder="Place a response here">
+  </div>
+
+  <label for="">Select Multiple Options</label>
+  <input type="checkbox" formControlName="select_multiple">
+  <label for="">Public Responses</label>
+  <input type="checkbox" formControlName="public_results">
+</form> -->
