@@ -4,6 +4,7 @@ import { Poll, Response } from '../poll';
 import { PollService } from '../poll.service';
 import { Observable } from 'rxjs/Rx';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Angular2TokenService } from 'angular2-token'
 
 @Component({
   selector: 'app-poll-new',
@@ -21,6 +22,7 @@ export class PollNewComponent implements OnInit {
   constructor(
     private pollService: PollService,
     private router: Router,
+    private authService: Angular2TokenService
     // private fb: FormBuilder
   ){
     // this.createForm()
