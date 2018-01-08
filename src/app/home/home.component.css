@@ -1,0 +1,17 @@
+.page-head {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.center-block {
+  float: none;
+}
+
+.col-centered{
+  margin: 0 auto;
+  float: none;
+}
+
+input {
+  text-align: center;
+}
