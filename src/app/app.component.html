@@ -1,24 +1,24 @@
 <nav class="navbar navbar-toggleable-sm navbar-light bg-faded nav-styles">
   <div class="container">
     <ul class="nav navbar-nav">
-      <div *ngIf="!_tokenService.userSignedIn(); else elseBlock" class="navbar-collapse">
+      <div *ngIf="!_tokenService.userSignedIn(); then thenBlock; else elseBlock"></div> 
+      <ng-template #thenBlock>
         <li class="nav-item"> <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a Poll</a> </li>
         <li class="nav-item"> <a class="nav-link" routerLink="sign-in" routerLinkActive="active">Sign In</a> </li>
         <li class="nav-item"> <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a> </li>
-      </div>
+      </ng-template>
       <ng-template #elseBlock>
-        <li class="nav-item dropdown">
-          <div ngbDropdown class="d-inline-block dropdown-links">
-            <button class="btn btn-outline-primary" id="proposalDropdown" ngbDropdownToggle>
-              Hello, {{currentUser().username}}! 
-            </button>
-            <div class="dropdown-menu" aria-labelledby="proposalDropdown">
-              <a class="dropdown-item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Profile</a>
-              <a class="dropdown-item" routerLink="polls/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a new Poll</a>
-              <a class="dropdown-item" routerLink="polls" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">View the Polls</a>
-              <a class="dropdown-item" (click)="signOut()" routerLinkActive="active">Sign Out</a>
-            </div>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">{{currentUser().username}} </a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="polls/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a new Poll</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="polls" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">View the Polls</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" (click)="signOut()" routerLinkActive="active">Sign Out</a>
         </li> 
       </ng-template>
     </ul>
