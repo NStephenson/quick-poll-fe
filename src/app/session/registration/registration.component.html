@@ -1,18 +1,45 @@
-<h1>Register</h1>
+<div class="row page-head text-center">
+  <div class="col-md-6 page-head">
+    <h1>Register</h1>
+  </div>
 
-<form #registrationForm="ngForm" (ngSubmit)="signUp(newUser)">
-  <label for="username">Username:</label>
-  <input type="text" name="username" required [(ngModel)]="newUser.username" #username="ngModel"><br>
+  <div class="col-md-6 col-centered">
+    <form #registrationForm="ngForm" (ngSubmit)="signUp(newUser)">
 
-  <label for="email">Email:</label>
-  <input type="email" name="email" required [(ngModel)]="newUser.email"><br>
+      <input type="text" 
+             name="username" 
+             required [(ngModel)]="newUser.username" 
+             #username="ngModel"
+             placeholder="Username"
+             class="no-border form-control"><br>
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" required [(ngModel)]="newUser.password"><br>
+      <input type="email" 
+             name="email" 
+             required 
+             [(ngModel)]="newUser.email"
+             placeholder="Email"
+             class="no-border form-control"><br>
 
-  <label for="passwordConfirmation">Password Confirmation:</label>
-  <input type="password" name="passwordConfirmation" required 
-         [(ngModel)]="newUser.passwordConfirmation"><br>
+      <input type="password" 
+             name="password" 
+             required 
+             [(ngModel)]="newUser.password"
+             placeholder="Password"
+             class="no-border form-control"><br>
 
-  <button type="submit">Sign Up</button>
-</form>
+      <input type="password" 
+             name="passwordConfirmation" 
+             required 
+             [(ngModel)]="newUser.passwordConfirmation"
+             placeholder="Confrim Your Password"
+             class="no-border form-control"><br>
+
+        <button class="btn btn-outline-primary btn-lrg" 
+            *ngIf="newUser.email && newUser.password"
+            [disabled]="!registrationForm.form.valid" 
+            type="submit"
+      > Sign Up
+    </button>
+    </form>
+  </div>
+</div>
