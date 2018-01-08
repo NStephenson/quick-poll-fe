@@ -1,12 +1,41 @@
-<h1>Sign In</h1>
+<div class="row text-center page-head ">
+ 
 
-<form #signInForm="ngForm" (ngSubmit)="signIn()">
+    <div class="col-md-6 page-head">
+      <h1>Sign In</h1>
+    </div>
 
-  <label for="email">Email:</label>
-  <input type="email" name="email" required [(ngModel)]="signInData.email"><br>
+   <div class="col-md-6 col-centered">
+    <form #signInForm="ngForm" (ngSubmit)="signIn()">
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" required [(ngModel)]="signInData.password"><br>
+      <input 
+        type="email" 
+        name="email" 
+        required 
+        [(ngModel)]="signInData.email"
+        placeholder="Email" 
+        class="no-border form-control"
+      >
+      <br>
 
-  <button type="submit">Sign In</button>
-</form>
+      <input 
+        type="password" 
+        name="password" 
+        required 
+        [(ngModel)]="signInData.password"
+        placeholder="Password" 
+        class="no-border form-control"
+      >
+      <br>
+
+
+      <button class="btn btn-outline-primary btn-lrg" 
+            *ngIf="signInData.email && signInData.password"
+            [disabled]="!signInForm.form.valid" 
+            type="submit"
+      > Sign In
+    </button>
+    </form>
+
+  </div>
+</div>
