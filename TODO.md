@@ -1,44 +1,28 @@
 #Round One
 
-1. NavBar
-   Links: 
-    Signed in:
-      Profile Page
-      Make Poll
-      Poll Index
-      Log Out
-    Signed Out: *Created*
-      Login  *inactive link*
-      Sign Up *inactive link*
-      Make Poll *form included on home page, link unnecessary?*
+1. Form Validations
 
-2.  **Complete** Create Poll (Only options will be editable, not a primary concern tho)
-    Create Componenent 
-    Form Needs:
-      Question Input
-      6 Response Input
-      Select Multiple cb
-      Public Responses cb 
-      Published cb 
-    Should Redirect to poll form after submit 
+   Forms that need validations:
+    New Poll
+    Login
+    Register
+    Poll Show
+      Functionality
+        required
+        length (password and questions)
+        Two responses for poll form
+      Display
+        Display errors both from front end and back end
 
-3. **Complete** Poll Form Submission 
-    Make Polls Submitable for NON USERS
+2. Poll show styling
+     Make style more cohesive with current forms
 
-4.  **Complete** Usability
-    Make new poll redirect on submit
-    Make responded poll swap to results on submit
+3. User show page
+     Basic page that will show all of the users polls they've made and responses
 
-5. The Dreaded AUTHENTICATION, PT1
-    Following Pages need creation:
-      Sign In
-        -username or email, password
-      Register
-        -username, email, password, password confirm
-      Sign out link
-    Get User Sign ins working *works sorta*
-    Get Signing out working
-    Allow Users to only be signed in to certain pages
+4. Animations
+     Fade in (or slide down) ngIf elements 
+
 
 #Cleanup Tasks - After above is working, The following needs to be refactored
 
@@ -48,12 +32,14 @@
 
 #Round Two
 
-1. Edit Poll
-2. Poll Form Validations
-3. Make Poll submitable for users
+1. Implement Charts.js to display poll information
+2. Make polls closable
+3. Auto show results for users who've answered a poll already
 
 #Bonus Features
 
-1. Poll New should also show a real time updated Poll form. On submit, the new form should swipe left and vanish off screen. The submitted form should slide to the center.
+1. Live Polls!
+2. Use IP checking to prevent double voting
+3. Only allow logged in users to respond to a poll
 
 2. Add comments for Polls
