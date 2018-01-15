@@ -1,29 +1,31 @@
 <div class="row" >
-  <div class="col-md-6 poll-form">
-      <form #pollForm="ngForm" (ngSubmit)="handleSubmit()">
+  <div class="col-md-12">
+    <div class="poll-form">
+        <form #pollForm="ngForm" (ngSubmit)="handleSubmit()">
 
-        <div class="mx-auto poll-info">
-        <h2>{{poll.question}}</h2>
-        <div id="usernameBlock" *ngIf="poll.user">
-          <p> by<br> <a href="">{{poll.user.username}}</a></p>
-        </div>
-        </div>
-        
-        <div class="form-group row responses">
+          <div class="mx-auto poll-info">
+          <h2>{{poll.question}}</h2>
+          <div id="usernameBlock" *ngIf="poll.user">
+            <p> by<br> <a href="">{{poll.user.username}}</a></p>
+          </div>
+          </div>
 
-            <div *ngFor="let response of poll.responses" class="col-6 response">
-            <input type="{{poll.select_multiple ? 'checkbox' : 'radio'}}" name="response" value="{{response.id}}" (click)="handleSelection(response.id)"> {{response.text}}
-            </div>
+          <div class="form-group row responses">
 
-               
-        </div>
+              <div *ngFor="let response of poll.responses" class="col-6 response">
+              <input type="{{poll.select_multiple ? 'checkbox' : 'radio'}}" name="response" value="{{response.id}}" (click)="handleSelection(response.id)"> {{response.text}}
+              </div>
 
-        <div class="row">
-            <input type="submit" value="submit" id="submit-poll"
-        class="btn btn-primary col-3 mx-auto">
-        </div>
-         
-     
-      </form>
+                 
+          </div>
+
+          <div class="row">
+              <input type="submit" value="submit" id="submit-poll"
+          class="btn btn-primary col-3 mx-auto">
+          </div>
+           
+       
+        </form>
+    </div>
   </div>
 </div>

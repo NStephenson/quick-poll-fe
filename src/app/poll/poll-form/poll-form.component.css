@@ -1,11 +1,19 @@
 .poll-form{
-  border: 5px solid black;
-  background-color: gray;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 4px 4px #DCDCDC;
+  margin-bottom: 10px;
 }
 
 .poll-form .poll-info {
-  margin: 10px;
+  padding: 10px 10px 0px 10px;
   text-align: center;
+  background-color: lightgray;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.poll-info h2 {
+  text-shadow: 1px 2px white;
 }
 
 #submit-poll {
@@ -13,9 +21,11 @@
 }
 
 .responses {
-  margin-left: 4%;
+  margin-top: 4px;
+  padding-top: 4%;
+  padding-left: 4%;
 }
 
 .response {
-  margin-bottom: 3%;
+  padding-bottom: 3%;
 }
