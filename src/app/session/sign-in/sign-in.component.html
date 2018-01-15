@@ -13,10 +13,26 @@
         name="email" 
         required 
         [(ngModel)]="signInData.email"
+        #email="ngModel"
         placeholder="Email" 
         class="no-border form-control"
+        email="true"
       >
       <br>
+
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+     class="alert alert-danger">
+
+        <p>Before you continue:  </p>
+        <ul>
+          <li *ngIf="email.errors.required">
+            Include and email address
+          </li>
+          <li *ngIf="email.errors.email">
+            Correct the formatting of your email
+          </li>
+        </ul>
+      </div>
 
       <input 
         type="password" 
@@ -24,9 +40,26 @@
         required 
         [(ngModel)]="signInData.password"
         placeholder="Password" 
+        #password="ngModel"
         class="no-border form-control"
+        minlength="8" 
       >
       <br>
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+     class="alert alert-danger">
+
+      <p>Before you continue: </p>
+      <ul>
+        <li *ngIf="password.errors.required">
+          Include a password
+        </li>
+        <li *ngIf="password.errors.minlength">
+          Make your password 8 characters or longer
+        </li>
+      </ul>
+      </div>
+
 
 
       <button class="btn btn-outline-primary btn-lrg" 
