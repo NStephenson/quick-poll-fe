@@ -3,6 +3,14 @@
 
     <div class="col-md-6 page-head">
       <h1>Sign In</h1>
+      <div *ngIf="errors" class="alert alert-danger">
+        <p>We've encountered the following errors with you request: </p>
+        <ul>
+          <li *ngFor="let message of errors">
+            {{message}}
+          </li>
+        </ul>
+      </div>
     </div>
 
    <div class="col-md-6 col-centered">
@@ -21,7 +29,7 @@
       <br>
 
       <div *ngIf="email.invalid && (email.dirty || email.touched)"
-     class="alert alert-danger">
+           class="alert alert-danger">
 
         <p>Before you continue:  </p>
         <ul>

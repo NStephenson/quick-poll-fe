@@ -13,6 +13,7 @@ import { Router } from '@angular/router'
 
 export class SignInComponent implements OnInit {
   signInData: SignInData = <SignInData>{};
+  errors: any;
 
 
   constructor(
@@ -25,7 +26,7 @@ export class SignInComponent implements OnInit {
   signIn(){
     this.authService.signIn(this.signInData).subscribe(
       res =>    this.router.navigate(['polls']),
-      error =>  console.log(error)
+      error =>  this.errors = JSON.parse(error._body).errors
     );
   }
 
