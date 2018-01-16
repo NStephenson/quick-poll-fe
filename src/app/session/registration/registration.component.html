@@ -1,6 +1,15 @@
 <div class="row page-head text-center">
   <div class="col-md-6 page-head">
     <h1>Register</h1>
+
+    <div *ngIf="errors" class="alert alert-danger">
+      <p>We've encountered the following errors with you request: </p>
+      <ul>
+        <li *ngFor="let message of errors.full_messages">
+          {{message}}
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="col-md-6 col-centered">
@@ -8,24 +17,73 @@
 
       <input type="text" 
              name="username" 
-             required [(ngModel)]="newUser.username" 
+             required 
+             minlength="6" 
+             [(ngModel)]="newUser.username" 
              #username="ngModel"
              placeholder="Username"
              class="no-border form-control"><br>
 
+      <div *ngIf="username.invalid && (username.dirty || username.touched)"
+           class="alert alert-danger">
+
+        <p>Before you continue:  </p>
+        <ul>
+          <li *ngIf="username.errors.required">
+            Include a username
+          </li>
+          <li *ngIf="username.errors.minlength">
+            Make your username longer than 6 characters
+          </li>
+        </ul>
+      </div>
+
       <input type="email" 
              name="email" 
+             #email="ngModel"
              required 
              [(ngModel)]="newUser.email"
              placeholder="Email"
              class="no-border form-control"><br>
 
+
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+           class="alert alert-danger">
+
+        <p>Before you continue:  </p>
+        <ul>
+          <li *ngIf="email.errors.required">
+            Include and email address
+          </li>
+          <li *ngIf="email.errors.email">
+            Correct the formatting of your email
+          </li>
+        </ul>
+      </div>
+
       <input type="password" 
              name="password" 
              required 
+             minlength="8" 
              [(ngModel)]="newUser.password"
+             #password="ngModel"
              placeholder="Password"
              class="no-border form-control"><br>
+
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+           class="alert alert-danger">
+
+        <p>Before you continue: </p>
+        <ul>
+          <li *ngIf="password.errors.required">
+            Include a password
+          </li>
+          <li *ngIf="password.errors.minlength">
+            Make your password 8 characters or longer
+          </li>
+        </ul>
+      </div>
 
       <input type="password" 
              name="passwordConfirmation" 
@@ -33,6 +91,20 @@
              [(ngModel)]="newUser.passwordConfirmation"
              placeholder="Confrim Your Password"
              class="no-border form-control"><br>
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+           class="alert alert-danger">
+
+        <p>Before you continue: </p>
+        <ul>
+          <li *ngIf="password.errors.required">
+            Include a password
+          </li>
+          <li *ngIf="password.errors.minlength">
+            Make your password 8 characters or longer
+          </li>
+        </ul>
+      </div>
 
         <button class="btn btn-outline-primary btn-lrg" 
             *ngIf="newUser.email && newUser.password"

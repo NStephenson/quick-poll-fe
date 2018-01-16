@@ -10,6 +10,7 @@ import { NewUser } from './newUser'
 })
 export class RegistrationComponent implements OnInit {
   newUser: NewUser = {};
+  errors: any;
 
   constructor(private tokenService: Angular2TokenService) {}
 
@@ -19,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   signUp(newUser){
     this.tokenService.registerAccount(newUser).subscribe(
       res =>      console.log(res),
-      error =>    console.log(error)
+      error =>   this.errors= JSON.parse(error._body).errors
     );
   }
 
