@@ -15,6 +15,7 @@ import { Angular2TokenService } from 'angular2-token'
 
 export class PollNewComponent implements OnInit {
   poll: Poll = new Poll();
+  errors: any
   submitted: boolean = false; 
   // pollForm: FormGroup;
 
@@ -41,6 +42,7 @@ export class PollNewComponent implements OnInit {
     this.poll.responses = [];
     this.addResponse()
     this.addResponse()
+    this.poll.public_results = true;
   }
 
   addResponse(){

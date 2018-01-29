@@ -9,9 +9,24 @@
                #question="ngModel" 
                [(ngModel)]="poll.question" 
                required
+               minlength="3"
+               maxlength="140" 
                autocomplete="off" 
                class="form-control no-border form-control-lg input-center">
         <br> 
+        <div *ngIf="question.invalid && (question.dirty || question.touched)"
+             class="alert alert-danger">
+
+          <p>Before you continue:  </p>
+          <ul>
+            <li *ngIf="question.errors.required">
+              Include a question
+            </li>
+            <li *ngIf="question.errors.minlength">
+              Make your question longer
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -26,6 +41,7 @@
                      placeholder="add a response" 
                      name="response[{{i}}]" 
                      [(ngModel)]="response.text" 
+                     maxlenth="60"
                      [value]="response.text" 
                      [required]="i<2" 
                      (keypress)="checkResponses()"
@@ -54,7 +70,7 @@
       
       <label class="custom-control custom-checkbox">
         <input type="checkbox" 
-               checked
+               [checked]="public_results"
                name="public_results" 
                #public_results="ngModel" 
                [(ngModel)]="poll.public_results" 
