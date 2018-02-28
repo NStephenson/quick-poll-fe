@@ -4,11 +4,12 @@
         <form #pollForm="ngForm" (ngSubmit)="handleSubmit()">
 
           <div class="mx-auto poll-info">
-          <h2>{{poll.question}}</h2>
-          <div id="usernameBlock" *ngIf="poll.user">
-            <p> by<br> <a href="">{{poll.user.username}}</a></p>
+            <h2><a class="nav-link" routerLink="/polls/{{poll.id}}" routerLinkActive="active">{{poll.question}}</a></h2>
+            <div id="usernameBlock" *ngIf="poll.user">
+              <p> by<br>  <a class="nav-link" routerLink="/profile/{{poll.user.username}}" routerLinkActive="active">{{poll.user.username}}</a></p>
+            </div>
           </div>
-          </div>
+
 
           <div class="form-group row responses">
 

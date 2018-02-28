@@ -14,7 +14,7 @@ import { ISubscription } from "rxjs/Subscription";
 
 
 export class PollComponent implements OnInit {
-  results: boolean = false
+  results: boolean = false;
   errorMessage: string;
   private subscription: ISubscription;
 
@@ -25,6 +25,7 @@ export class PollComponent implements OnInit {
   ){}
 
   ngOnInit(){
+    this.checkPoll()
   }
 
   toggleResults(e){
@@ -42,9 +43,23 @@ export class PollComponent implements OnInit {
   getPoll(){
     this.pollService.getPoll(this.poll.id)
                     .subscribe(
-                      poll => this.poll = poll,
+                      poll => {
+                        this.poll = poll
+                        this.checkPoll()
+                      },
                       error => this.errorMessage = <any>error
                     )
+
+  }
+
+  checkPoll(){
+    if(this.currentUserVotes().includes(this.poll.id)){
+      this.results = true;
+    }
+  }
+
+  currentUserVotes(){
+    return [1,2,3,4]
   }
 
 }
