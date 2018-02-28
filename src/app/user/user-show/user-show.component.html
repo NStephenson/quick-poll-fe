@@ -1,3 +1,19 @@
-<p>
-  user-show works!
-</p>
+<div class="row page-head">
+  <div class="col-lg-12 text-center">
+    <h1>{{user.username}}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <div *ngFor="let poll of user.polls">
+      <app-poll [poll]="poll"></app-poll>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <h3>Here are polls {{user.username}} reponded to:</h3>
+    <div *ngFor="let vote of user.votes">
+     {{user.username}} responded to <strong>{{vote.poll.question}}</strong> with <strong>{{vote.response.text}}</strong>
+    </div>
+  </div>
+</div>
