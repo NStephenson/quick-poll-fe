@@ -4,18 +4,17 @@
 
    Forms that need validations:
     New Poll
-    Login
-    Register
     Poll Show
       Functionality
         required
         length (password and questions)
         Two responses for poll form
+        Character limit for poll
       Display
         Display errors both from front end and back end
 
 2. Poll show styling
-     Make style more cohesive with current forms
+     Make style more cohesive with current forms **not cohesive but looks decent**
 
 3. User show page
      Basic page that will show all of the users polls they've made and responses
@@ -43,3 +42,13 @@
 3. Only allow logged in users to respond to a poll
 
 2. Add comments for Polls
+
+
+#Notes: 
+
+1. usernames should not allow special characters
+2. Password confirmation needs front end validation
+3. New poll responses need validation front and back
+4. Results page styling
+5. Poll responses need to display in consistent order
+6. Styling for 404 page.
