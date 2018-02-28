@@ -9,10 +9,10 @@
       </ng-template>
       <ng-template #elseBlock>
         <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">{{currentUser().username}} </a>
+          <a class="nav-link" routerLink="profile/{{currentUser().username}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">{{currentUser().username}} </a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link" routerLink="polls/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a new Poll</a>
+          <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a new Poll</a>
         </li> 
         <li class="nav-item">
           <a class="nav-link" routerLink="polls" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">View the Polls</a>
