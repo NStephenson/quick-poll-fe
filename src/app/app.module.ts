@@ -5,9 +5,6 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-
-
-
 import { AppComponent } from './app.component';
 import { PollFormComponent } from './poll/poll-form/poll-form.component';
 import { PollComponent } from './poll/poll.component';
@@ -19,6 +16,7 @@ import { PollShowComponent } from './poll/poll-show/poll-show.component';
 import { SessionComponent } from './session/session.component';
 import { RegistrationComponent } from './session/registration/registration.component';
 import { SignInComponent } from './session/sign-in/sign-in.component';
+import { UserService } from './user/user.service';
 
 import { Angular2TokenService } from 'angular2-token';
 
