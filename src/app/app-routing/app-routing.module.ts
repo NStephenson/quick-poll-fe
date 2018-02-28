@@ -14,6 +14,8 @@ import { PollResultsComponent } from '../poll/poll-results/poll-results.componen
 import { PollComponent } from '../poll/poll.component'
 import { PollIndexComponent } from '../poll/poll-index/poll-index.component';
 
+import { UserShowComponent } from '../user/user-show/user-show.component'
+
 
 import { AuthGuard, UnAuthGuard } from '../guards/auth.guard'
 
@@ -24,6 +26,7 @@ const routes: Routes = [
   {path: 'results', component: PollResultsComponent},
   {path: 'polls/new', component: PollNewComponent},
   {path: 'polls/:id', component: PollShowComponent},
+  {path: 'profile/:username', component: UserShowComponent},
   {path: 'polls', component: PollIndexComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegistrationComponent, canActivate: [UnAuthGuard]},
   {path: 'sign-in', component: SignInComponent, canActivate: [UnAuthGuard]},
