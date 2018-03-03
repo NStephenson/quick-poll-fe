@@ -15,11 +15,15 @@ export class PollFormComponent implements OnInit {
   selection: number[] = [];
 
   @Input() poll: Poll;
-   @Output() submitPoll: EventEmitter<any> = new EventEmitter();
+   @Output() toggleResults: EventEmitter<any> = new EventEmitter();
 
   constructor(private pollService: PollService) { }
 
   ngOnInit() {
+  }
+
+  seeResults(){
+    this.toggleResults.emit()
   }
   
  
@@ -27,7 +31,7 @@ export class PollFormComponent implements OnInit {
   handleSubmit(){
     this.pollService.submitResponses(this.poll.id, this.selection)
                     .subscribe(data => {
-                      this.submitPoll.emit();
+                      this.toggleResults.emit();
                     }, 
                                error => { console.log("error saving");
                                return Observable.throw(error);
