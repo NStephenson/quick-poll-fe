@@ -16,7 +16,8 @@ export class AppComponent {
      private router: Router
      ){
      _tokenService.init({
-       apiBase: 'http://localhost:3000'
+       apiPath: '/api',
+       oAuthBase: 'http://localhost:3000'
      })
    }
 
