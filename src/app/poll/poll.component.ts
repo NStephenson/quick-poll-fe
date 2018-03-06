@@ -18,7 +18,6 @@ export class PollComponent implements OnInit {
   errorMessage: string;
   private subscription: ISubscription;
 
-
   @Input() poll: Poll;
 
   constructor(private pollService: PollService
