@@ -2,6 +2,12 @@
   <app-poll-form *ngIf="poll" [poll]="poll" (toggleResults)="toggleResults($event)"></app-poll-form>
 </div>
 <ng-template #elseBlock>
-  <app-poll-results (toggleResults)="toggleResults()" *ngIf="poll" [poll]="poll"></app-poll-results>
+  <app-poll-results (toggleResults)="toggleResults()" 
+                    *ngIf="poll" 
+                    [poll]="poll"
+                    [editable]="editable"
+                    (handleEdit)="handleEdit($event)"
+                    (handleDelete)="emitDelete($event)"
+  ></app-poll-results>
 </ng-template>
 

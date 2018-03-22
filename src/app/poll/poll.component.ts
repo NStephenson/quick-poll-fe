@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Poll }  from './poll';
 import { Observable } from 'rxjs/Rx';
 import { PollService }  from './poll.service';
 import { ISubscription } from "rxjs/Subscription";
+import { UserService } from '../user/user.service'
 
 
 @Component({
@@ -14,17 +15,23 @@ import { ISubscription } from "rxjs/Subscription";
 
 
 export class PollComponent implements OnInit {
-  results: boolean = false;
-  errorMessage: string;
-  private subscription: ISubscription;
 
   @Input() poll: Poll;
+  @Input() editable: boolean = this.editable;
+  @Output() handleDelete: EventEmitter<any> = new EventEmitter()
 
-  constructor(private pollService: PollService
+  results: boolean = false;
+  errorMessage: string;
+ 
+  private subscription: ISubscription;
+
+
+  constructor(private pollService: PollService, private userService: UserService
   ){}
 
   ngOnInit(){
     this.checkPoll()
+    !this.editable && this.userService.isCurrentUser(this.poll.user) ? this.editable = true : null
   }
 
   toggleResults(e){
@@ -33,22 +40,35 @@ export class PollComponent implements OnInit {
     
     if (this.results){
       let timer = Observable.timer(0, 5000)
-      this.subscription = timer.subscribe(() => this.getPoll());
+      this.subscription = timer.subscribe(() => this.getPollResponses());
     } else {
       this.subscription.unsubscribe();
     }
   }
 
-  getPoll(){
+  handleEdit(poll){
+    this.poll = poll
+  }
+
+  emitDelete(pollId){
+    this.handleDelete.emit(pollId)
+  }
+
+  getPollResponses(){
     this.pollService.getPoll(this.poll.id)
                     .subscribe(
                       poll => {
-                        this.poll = poll
+                        this.poll.responses = this.sortResponses(poll.responses)
                         this.checkPoll()
                       },
                       error => this.errorMessage = <any>error
                     )
 
+  }
+
+
+  sortResponses(responses) {
+    return responses.sort((a,b) =>  a.id > b.id ? 1 : -1)
   }
 
   checkPoll(){
