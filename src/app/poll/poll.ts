@@ -14,6 +14,7 @@ export class Poll {
 
 export class Response {
   constructor(
+    public id?: number,
     public text: string = ''
   ){}
 }
