@@ -8,6 +8,13 @@
           <p> by<br>  <a class="nav-link" routerLink="/profile/{{poll.user.username}}" routerLinkActive="active">{{poll.user.username}}</a></p>
         </div>
 
+      <div *ngIf="editable">
+          <app-poll-edit (handleEdit)="emitEdit($event)"
+                         (handleDelete)="emitDelete($event)" 
+                         [poll]="poll"
+          ></app-poll-edit>
+        </div>
+
         </div>
         
         <div class="form-group row responses">
@@ -24,5 +31,3 @@
           </div>
          
     </div> 
-  </div>
-</div>
