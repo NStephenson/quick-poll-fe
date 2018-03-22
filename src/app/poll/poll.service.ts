@@ -28,12 +28,24 @@ export class PollService {
            .map((res: Response) => res.json())
   }
 
+  editPoll(poll: Poll){
+    return this.tokenService.patch(`polls/${poll.id}`, JSON.stringify({poll: poll}))
+           .map((res: Response) => res.json())
+  }
+
+  deletePoll(pollId: number){
+    return this.tokenService.delete(`polls/${pollId}`).map((res: Response) => res.json())
+    
+  }
+
   submitResponses(pollId: number, responseIds: number[]){
     let res = {poll: {id: pollId, response_ids: responseIds}}
 
     return this.tokenService.post(`polls/${pollId}/results`, JSON.stringify(res))
                     .map((res: Response) => res.json())
   }
+
+
 
 
 
