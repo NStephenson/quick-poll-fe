@@ -1,13 +1,8 @@
 <nav class="navbar navbar-toggleable-sm navbar-light bg-faded nav-styles">
   <div class="container">
     <ul class="nav navbar-nav">
-      <div *ngIf="!_tokenService.userSignedIn(); then thenBlock; else elseBlock"></div> 
+      <div *ngIf="_tokenService.userSignedIn() && currentUser(); then thenBlock; else elseBlock"></div> 
       <ng-template #thenBlock>
-        <li class="nav-item"> <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a Poll</a> </li>
-        <li class="nav-item"> <a class="nav-link" routerLink="sign-in" routerLinkActive="active">Sign In</a> </li>
-        <li class="nav-item"> <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a> </li>
-      </ng-template>
-      <ng-template #elseBlock>
         <li class="nav-item">
           <a class="nav-link" routerLink="profile/{{currentUser().username}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">{{currentUser().username}} </a>
         </li> 
@@ -21,6 +16,12 @@
           <a class="nav-link" (click)="signOut()" routerLinkActive="active">Sign Out</a>
         </li> 
       </ng-template>
+      <ng-template #elseBlock>
+        <li class="nav-item"> <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">Create a Poll</a> </li>
+        <li class="nav-item"> <a class="nav-link" routerLink="sign-in" routerLinkActive="active">Sign In</a> </li>
+        <li class="nav-item"> <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a> </li>
+      </ng-template>
+
     </ul>
   </div>
 </nav>
