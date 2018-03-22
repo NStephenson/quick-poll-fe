@@ -54,7 +54,7 @@ import { PollEditComponent } from './poll/poll-edit/poll-edit.component'
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [PollService, Angular2TokenService, AuthGuard, UnAuthGuard],
+  providers: [PollService, Angular2TokenService, AuthGuard, UnAuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
