@@ -51,6 +51,7 @@ export class PollComponent implements OnInit {
   }
 
   emitDelete(pollId){
+    this.subscription.unsubscribe();
     this.handleDelete.emit(pollId)
   }
 
