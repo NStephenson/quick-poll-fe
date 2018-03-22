@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
-import { Http, Response, Headers, RequestOptions } from '@angular/http'
+import { Response, Headers, RequestOptions } from '@angular/http'
 import { UserService } from '../user.service';
 import { User } from '../user'
 
@@ -15,7 +15,6 @@ export class UserShowComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private http: Http
   ) { }
 
   user: User;
@@ -23,6 +22,10 @@ export class UserShowComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+  }
+
+  handleDelete(pollId){
+    this.user.polls = this.user.polls.filter( poll => poll.id != pollId )
   }
 
 

@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-lg-8">
     <div *ngFor="let poll of user.polls">
-      <app-poll [poll]="poll"></app-poll>
+      <app-poll [poll]="poll" [editable]="userService.isCurrentUser(user)" (handleDelete)="handleDelete($event)"></app-poll>
     </div>
   </div>
   <div class="col-lg-4">
