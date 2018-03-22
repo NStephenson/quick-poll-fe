@@ -1,1 +1,1 @@
-<app-poll *ngIf="poll" [poll]="poll"></app-poll>
+<app-poll *ngIf="poll" [poll]="poll" (handleDelete)="handleDelete($event)"></app-poll>
