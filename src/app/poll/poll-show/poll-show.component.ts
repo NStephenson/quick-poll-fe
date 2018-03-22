@@ -29,7 +29,7 @@ export class PollShowComponent implements OnInit {
   }
 
    handleDelete(pollId){
-    this.router.navigate(['polls/new'])
+    this.router.navigate(['/'])
   }
 
   getPoll(){
