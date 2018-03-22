@@ -20,6 +20,10 @@ export class PollIndexComponent implements OnInit {
     this.getPolls()
   }
 
+  handleDelete(pollId){
+    this.polls = this.polls.filter( poll => poll.id != pollId )
+  }
+
 
 
   getPolls(){
