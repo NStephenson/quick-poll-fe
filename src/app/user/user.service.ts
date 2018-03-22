@@ -17,6 +17,14 @@ export class UserService {
                     .catch(this.handleError)
   }
 
+  currentUser(): User{
+     return this.tokenService.userSignedIn ? this.tokenService.currentUserData : null
+   }
+
+  isCurrentUser(user: User): boolean{
+    return this.currentUser() ? this.currentUser().id  === user.id : null
+  }
+
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
