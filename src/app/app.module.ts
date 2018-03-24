@@ -36,7 +36,6 @@ import { PollEditComponent } from './poll/poll-edit/poll-edit.component'
     HomeComponent,
     PollNewComponent,
     PollShowComponent,
-    SessionComponent,
     RegistrationComponent,
     SignInComponent,
     NotFoundComponent,
