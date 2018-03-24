@@ -13,7 +13,6 @@ import { PollService } from './poll/poll.service';
 import { HomeComponent } from './home/home.component';
 import { PollNewComponent } from './poll/poll-new/poll-new.component';
 import { PollShowComponent } from './poll/poll-show/poll-show.component';
-import { SessionComponent } from './session/session.component';
 import { RegistrationComponent } from './session/registration/registration.component';
 import { SignInComponent } from './session/sign-in/sign-in.component';
 import { UserService } from './user/user.service';
