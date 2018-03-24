@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
 
    constructor(
-     private _tokenService: Angular2TokenService,
+     public _tokenService: Angular2TokenService,
      private router: Router
      ){
      _tokenService.init({
