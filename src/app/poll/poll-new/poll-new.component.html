@@ -57,38 +57,41 @@
     <div class="option-section" *ngIf="question.dirty">
    
       <h4>Poll Options</h4>
-      
+      <div class="row">
+      <div class="col-md-4">
       <label class="custom-control custom-checkbox">
         <input  type="checkbox" 
                 name="select_multiple" 
                 #select_multiple="ngModel" 
                 [(ngModel)]="poll.select_multiple"
-                class="custom-control-input">
+                >
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description">Allow Multiple Responses</span>
       </label>
-      
+      </div>
+      <div class="col-md-4">
       <label class="custom-control custom-checkbox">
         <input type="checkbox" 
                [checked]="public_results"
                name="public_results" 
                #public_results="ngModel" 
                [(ngModel)]="poll.public_results" 
-               class="custom-control-input">
+               >
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description">Public Responses</span>
       </label>
-
-      <div class="user-options" *ngIf="authService.userSignedIn()">
+      </div>
+      <div class="user-options col-md-4" *ngIf="authService.userSignedIn()">
         <label class="custom-control custom-checkbox">
           <input type="checkbox" 
                  name="published" 
                  #published="ngModel" 
                  [(ngModel)]="poll.published" 
-                 class="custom-control-input">
+                 >
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">Publish this Poll</span>
         </label>
+        </div>
       </div>
     </div>
     <br>
