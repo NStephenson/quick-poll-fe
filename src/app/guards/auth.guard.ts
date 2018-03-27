@@ -16,12 +16,16 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean 
   {
-    if(this.authTokenService.userSignedIn()){
-      return true;
-    }else{
-      this.router.navigate(['/']);
-      return false;
-    }
+    return this.authTokenService.validateToken().map(
+      res => {
+        if(res){
+          return true
+        }
+      }).catch(()=>{
+        this.authTokenService.signOut()
+        this.router.navigate(['/']);
+        return Observable.of(false)
+      })
   }
 }
 
@@ -38,11 +42,14 @@ export class UnAuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean 
   {
-    if(!this.authTokenService.userSignedIn()){
-      return true;
-    }else{
-      this.router.navigate(['/polls']);
-      return false;
-    }
+    return this.authTokenService.validateToken().map(
+      res => {
+        if(res){
+          this.router.navigate(['/polls']);
+          return false
+        }
+      }).catch(()=>{
+        return Observable.of(true)
+      })
   }
 }
