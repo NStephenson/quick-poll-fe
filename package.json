@@ -19,7 +19,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.0.0",
-    "@angular/cli": "1.4.9",
+    "@angular/cli": "^1.7.3",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -31,6 +31,7 @@
     "@angular/router": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.6",
     "angular2-token": "^0.2.0-beta.12",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "express-http-proxy": "^1.1.0",
