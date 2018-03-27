@@ -22,7 +22,7 @@ export class AppComponent {
    }
 
    currentUser(): UserData{
-     return this._tokenService.userSignedIn ? this._tokenService.currentUserData : null
+     return this._tokenService.userSignedIn() ? this._tokenService.currentUserData : null
    }
 
   signOut(){
