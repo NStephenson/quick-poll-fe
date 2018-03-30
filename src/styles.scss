@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Shadows+Into+Light');
+
+$body-bg: #C96567;
+$body-color: #fcfefc;
+
+$font-family-base: 'Josefin Sans', cursive;
+
+
+$navbar-light-color: #98aabe;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.col-centered{
+  margin: 0 auto;
+  float: none;
+}
+
+input {
+  text-align: center;
+}
+
+.no-border {
+  outline-color: red;
+  outline-style: none;
+  border: 0;
+  box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
+.page-head {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
