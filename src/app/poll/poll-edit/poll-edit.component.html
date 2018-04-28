@@ -9,8 +9,7 @@
         <input  type="checkbox" 
                 name="select_multiple" 
                 #select_multiple="ngModel" 
-                [(ngModel)]="poll.select_multiple"
-                class="custom-control-input">
+                [(ngModel)]="poll.select_multiple">
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description">Allow Multiple Responses</span>
       </label>
@@ -20,8 +19,7 @@
                [checked]="public_results"
                name="public_results" 
                #public_results="ngModel" 
-               [(ngModel)]="poll.public_results" 
-               class="custom-control-input">
+               [(ngModel)]="poll.public_results">
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description">Public Responses</span>
       </label>
@@ -31,8 +29,7 @@
           <input type="checkbox" 
                  name="published" 
                  #published="ngModel" 
-                 [(ngModel)]="poll.published" 
-                 class="custom-control-input">
+                 [(ngModel)]="poll.published">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">Publish this Poll</span>
         </label>
