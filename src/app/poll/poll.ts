@@ -8,7 +8,7 @@ export class Poll {
     public open?: boolean,
     public responses: Response[] = [],
     public responses_attributes?: any,
-    public user?: any
+    public user?: any,
     public votes?: any
   ){}
 }
