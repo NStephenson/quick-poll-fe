@@ -1,6 +1,6 @@
-<p><a href="" (click)="showEdit($event)">Edit Poll</a> - <a href="" (click)="deletePoll($event)">Delete Poll</a></p>
+<p><a href="" (click)="showEdit($event)">{{editText[showEditForm ? 1 : 0]}}</a> - <a href="" (click)="deletePoll($event)">Delete Poll</a></p>
 
-<div *ngIf="showEditForm" class="text-center new-poll-form">
+<div *ngIf="showEditForm" class="text-center edit-poll-form">
   <form (ngSubmit)="editPoll(poll)" #pollForm="ngForm">
    
       <p>Poll Options</p>
@@ -35,9 +35,7 @@
         </label>
       </div>
 
-
-    <br>
-    <button class="btn btn-outline-primary btn-lrg" 
+    <button class="btn btn-primary btn-lrg" 
             type="submit">
       Edit Poll
     </button>

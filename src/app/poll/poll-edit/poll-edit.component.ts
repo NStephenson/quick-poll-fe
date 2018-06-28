@@ -29,6 +29,7 @@ export class PollEditComponent implements OnInit {
   @Output() handleEdit: EventEmitter<any> = new EventEmitter()
   @Output() handleDelete: EventEmitter<any> = new EventEmitter()
 
+  editText: string[] = ["Edit Poll", "Close Edit Form" ]
 
   editPoll(poll){
 
