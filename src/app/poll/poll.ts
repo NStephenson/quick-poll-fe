@@ -9,6 +9,7 @@ export class Poll {
     public responses: Response[] = [],
     public responses_attributes?: any,
     public user?: any
+    public votes?: any
   ){}
 }
 
