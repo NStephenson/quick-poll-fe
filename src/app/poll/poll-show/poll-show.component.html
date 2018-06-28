@@ -1,1 +1,14 @@
-<app-poll *ngIf="poll" [poll]="poll" (handleDelete)="handleDelete($event)"></app-poll>
+<div class="row">
+  <div class="col-md-8">
+    <app-poll *ngIf="poll" [poll]="poll" (handleDelete)="handleDelete($event)"></app-poll>
+  </div>
+  <div class="col-md-4" id="vote-list">
+    <h3>See how users have voted on this poll:</h3>
+    <div *ngFor="let vote of poll.votes">
+      <!-- Don't need the following conditional due to a database change but I might change it back so for now it stays -->
+     <p>{{vote.user ? vote.user.username : "A guest"}} responded with <strong>{{vote.response.text}}</strong></p>
+      }
+    </div>
+  </div>
+</div>
+
