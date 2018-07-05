@@ -107,9 +107,9 @@
       </div>
 
 
-      <app-facebook-login-link [text]="'Sign up with facebook'"></app-facebook-login-link>
+      <app-facebook-login-link [text]="'Sign up with facebook'"></app-facebook-login-link><br>
     
-        <button class="btn btn-outline-primary btn-lrg" 
+        <button class="btn btn-primary btn-lrg" 
             *ngIf="newUser.email && newUser.password"
             [disabled]="!registrationForm.form.valid" 
             type="submit"
