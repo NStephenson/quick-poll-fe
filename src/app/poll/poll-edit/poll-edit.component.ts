@@ -32,9 +32,10 @@ export class PollEditComponent implements OnInit {
   editText: string[] = ["Edit Poll", "Close Edit Form" ]
 
   editPoll(poll){
-
     this.pollService.editPoll(poll)
-        .subscribe( poll  => this.handleEdit.emit(poll), 
+        .subscribe( poll  => { this.showEditForm = false 
+                               this.handleEdit.emit(poll)
+                             }, 
                     error => { console.log("error saving");
                               return Observable.throw(error);
                             });
