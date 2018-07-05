@@ -16,7 +16,6 @@
       
       <label class="custom-control custom-checkbox">
         <input type="checkbox" 
-               [checked]="public_results"
                name="public_results" 
                #public_results="ngModel" 
                [(ngModel)]="poll.public_results">
@@ -24,7 +23,7 @@
         <span class="custom-control-description">Public Responses</span>
       </label>
 
-      <div class="user-options" *ngIf="tokenService.userSignedIn()">
+
         <label class="custom-control custom-checkbox">
           <input type="checkbox" 
                  name="published" 
@@ -33,7 +32,7 @@
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">Publish this Poll</span>
         </label>
-      </div>
+
 
     <button class="btn btn-primary btn-lrg" 
             type="submit">
