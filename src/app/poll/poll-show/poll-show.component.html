@@ -7,7 +7,6 @@
     <div *ngFor="let vote of poll.votes">
       <!-- Don't need the following conditional due to a database change but I might change it back so for now it stays -->
      <p>{{vote.user ? vote.user.username : "A guest"}} responded with <strong>{{vote.response.text}}</strong></p>
-      }
     </div>
   </div>
 </div>
