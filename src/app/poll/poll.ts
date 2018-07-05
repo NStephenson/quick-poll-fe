@@ -5,6 +5,7 @@ export class Poll {
     public limit_to_survey?: boolean,
     public select_multiple?: boolean,
     public public_results?: boolean,
+    public published?: boolean,
     public open?: boolean,
     public responses: Response[] = [],
     public responses_attributes?: any,
